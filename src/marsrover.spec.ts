@@ -1,5 +1,4 @@
-import { verify } from 'crypto';
-import Grid from './Grid';
+import Grid from './grid/Grid';
 import MarsRover from './MarsRover'
 
 
