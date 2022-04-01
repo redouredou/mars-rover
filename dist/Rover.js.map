@@ -1,1 +1,1 @@
-{"version":3,"file":"Rover.js","sourceRoot":"","sources":["../src/Rover.ts"],"names":[],"mappings":";;AAAA,MAAqB,KAAK;IAA1B;QACI,gBAAW,GAAG,GAAG,EAAE,CAAC,eAAe,CAAA;IACvC,CAAC;CAAA;AAFD,wBAEC"}
+{"version":3,"file":"Rover.js","sourceRoot":"","sources":["../src/Rover.ts"],"names":[],"mappings":";;;AAAA,MAAa,KAAK;IACd,OAAO,CAAC,OAAe;QACnB,IAAG,OAAO,KAAK,IAAI,EAAC;YAChB,OAAO,OAAO,CAAA;SACjB;QACD,OAAO,OAAO,CAAC;IACnB,CAAC;CACJ;AAPD,sBAOC"}
