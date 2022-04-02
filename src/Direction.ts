@@ -6,14 +6,14 @@ export class Direction {
         return this._direction.valueOf();
     }
 
-    rotateRight = () => {
+    right(){
         if(this._direction === EDirection.WEST) this._direction = EDirection.NORTH;
         else if(this._direction === EDirection.SOUTH) this._direction = EDirection.WEST;
         else if(this._direction === EDirection.EAST) this._direction = EDirection.SOUTH;
         else this._direction = EDirection.EAST;
     }
 
-    rotateLeft = () => {
+    left(){
         if(this._direction === EDirection.EAST) this._direction = EDirection.NORTH;
         else if(this._direction === EDirection.SOUTH) this._direction = EDirection.EAST;
         else if(this._direction === EDirection.WEST) this._direction = EDirection.SOUTH;
@@ -22,7 +22,7 @@ export class Direction {
 
 }
 
-enum EDirection {
+export enum EDirection {
     NORTH = 'N',
     EAST = 'E',
     SOUTH = 'S',
