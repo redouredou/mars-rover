@@ -1,44 +1,44 @@
-import {Direction, EDirection}  from "./Direction";
 import { Coordinates } from './Coordinates';
 import { Grid } from "./Grid";
+import { State } from "./state/State";
+import { NorthDirection } from "./state/NorthDirection";
 
 
 export class Rover {
     
-    private direction = new Direction();
+    private state : State;
     private coordinate = new Coordinates(0,0);
     private grid: Grid;
 
     constructor(grid: Grid){
+        this.state = new NorthDirection(this);
         this.grid = grid;
     }
 
-    execute(command: string): string{
-
-        let meetObstacle = false;
-        command.split('').forEach(value => {
-            if(value === 'M'){
-                const currentCoordinates = this.coordinate;
-                this.coordinate = this.grid.coordinateTo(this.coordinate, this.direction.getValue());
-                currentCoordinates.isEqual(this.coordinate) ? meetObstacle = true: meetObstacle;
-            }
-            if(value === 'R'){
-                this.rotateRight();
-            }
-            if(value === 'L')
-                this.rotateLeft();
-            }
-        )
-
-        return  (meetObstacle? 'O:' : '')+this.coordinate.x + ':' + this.coordinate.y +':'+this.direction.getValue();
+    changeState(state: State){
+        this.state = state;
     }
 
-    rotateRight(){
-        this.direction.right();
+    turnRight(){
+        this.state.turnRight();
     }
 
-    rotateLeft(){
-        this.direction.left();
+    turnLeft(){
+        this.state.turnLeft();
+    }
+
+    moveAhead() : boolean{
+        const currentCoordinates = this.coordinate;
+        this.coordinate = this.grid.coordinateTo(this.coordinate, this.state.getCurrentDirection());
+        return currentCoordinates.isEqual(this.coordinate);
+    }
+
+    get getCoordinates(){
+        return this.coordinate;
+    }
+
+    get getCurrentDirection(){
+        return this.state.getCurrentDirection();
     }
 }
 

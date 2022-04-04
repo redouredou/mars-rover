@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Grid = void 0;
 const Coordinates_1 = require("./Coordinates");
-const Direction_1 = require("./Direction");
+const Direction_1 = require("./state/Direction");
 class Grid {
     constructor(obstacles) {
         this.MAX_WIDTH = 10;

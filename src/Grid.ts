@@ -1,5 +1,5 @@
 import { Coordinates } from "./Coordinates";
-import { EDirection } from "./Direction";
+import { EDirection } from "./state/Direction";
 
 export class Grid {
     private readonly MAX_WIDTH = 10;
