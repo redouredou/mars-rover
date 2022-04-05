@@ -9,14 +9,28 @@ export class Rover {
     private state : State;
     private coordinate = new Coordinates(0,0);
     private grid: Grid;
+    private isMeetObstacle: boolean;
 
     constructor(grid: Grid){
         this.state = new NorthDirection(this);
         this.grid = grid;
+        this.isMeetObstacle = false;
     }
 
     changeState(state: State){
         this.state = state;
+    }
+
+    get getCoordinates(){
+        return this.coordinate;
+    }
+
+    get getCurrentDirection(){
+        return this.state.getCurrentDirection();
+    }
+
+    get IsMeetObstacle(){
+        return this.isMeetObstacle;
     }
 
     turnRight(){
@@ -27,19 +41,12 @@ export class Rover {
         this.state.turnLeft();
     }
 
-    moveAhead() : boolean{
+    moveAhead(){
         const currentCoordinates = this.coordinate;
         this.coordinate = this.grid.coordinateTo(this.coordinate, this.state.getCurrentDirection());
-        return currentCoordinates.isEqual(this.coordinate);
+        this.isMeetObstacle = currentCoordinates.isEqual(this.coordinate);
     }
 
-    get getCoordinates(){
-        return this.coordinate;
-    }
-
-    get getCurrentDirection(){
-        return this.state.getCurrentDirection();
-    }
 }
 
 
